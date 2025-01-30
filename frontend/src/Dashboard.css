@@ -1,0 +1,511 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: #7e7e7e;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background-color: #f9f9f9;
+
+    align-content: center;
+}
+
+h1, h2, h3, p, div {
+    color: #1a1a1a;
+}
+
+.header button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 120px;
+    height: 90%;
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+    font-weight: 600;
+
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* CHAT CSS */
+.chat-container {
+    display: flex;
+    height: 90vh;
+}
+
+.conversations-list {
+    border-right: 1px solid #ccc;
+}
+
+.conversation-item {
+    padding: 10px;
+    margin-bottom: 5px; /* Space between items */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.conversation-item:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+.add-conversation,
+.add-participant {
+    margin-top: 10px; /* Space above inputs */
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.add-conversation input,
+.add-participant input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc; /* Light gray border */
+    width: 9    0%; /* Full width minus padding/border */
+}
+
+.add-conversation button,
+.add-participant button {
+    padding: 10px;
+    margin-top: 5px; /* Space above buttons */
+    border-radius: 4px;
+    border: none;
+    background-color: #202020; /* Green background for add buttons */
+    color: white;
+}
+
+.add-conversation button:hover,
+.add-participant button:hover {
+    background-color: #333333; /* Darker green on hover */
+}
+
+.messages-area {
+    flex-grow: 1; /* Take remaining space */
+    padding: 15px;
+}
+
+.messages-list {
+    max-height: calc(100% - 100px); /* Adjust based on input area height */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 5px; /* Space between messages */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.sent {
+    background-color: #d4edda; /* Light green for sent messages */
+}
+
+.received {
+    background-color: #f8d7da; /* Light red for received messages */
+}
+
+
+.attached-files {
+    margin-top: 5px; /* Space above attached files section */
+}
+
+.file-download {
+    cursor: pointer;
+    color: #007bff; /* Blue text for file links */
+}
+
+.file-download:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.message-input {
+    display: flex;
+    align-items: center;
+}
+
+.message-input input[type="text"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc; /* Light gray border */
+    flex-grow: 1; /* Take remaining space in the row */
+}
+
+.message-input button {
+   padding :10px ;
+   margin-left :10px ; 
+   border-radius :4px ; 
+   border :none ; 
+   background-color :#007bff ; 
+   color :white ; 
+   cursor:pointer ; 
+}
+.message-input button:hover {
+   background-color :#0056b3 ; 
+}
+
+/* SMS container styles */
+.sms-container {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sms-container h2 {
+    margin-bottom: 15px;
+}
+
+.sms-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sms-container input[type="text"],
+.sms-container textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.sms-container input[type="text"]:focus,
+.sms-container textarea:focus {
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.sms-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sms-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Received messages list */
+.sms-container ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove left padding */
+}
+
+.sms-container li {
+    background-color: #f9f9f9; /* Light gray for message bubbles */
+    margin-bottom: 10px; /* Space between messages */
+    padding: 10px; /* Padding inside message bubbles */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Email CSS */
+.email-container {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+.inbox-container {
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.compose-preview-container {
+    width: 80%;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.compose-container {
+    height: 60%;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.preview-container {
+    height: 40%;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+/* Compose Email Styles */
+.compose-container {
+    padding-top: 0;
+}
+
+.compose-container h2 {
+    font-size: 15px;
+}
+
+.form-group, .form-group-attachment {
+    margin-bottom: 5px; /* Space between form groups */
+}
+
+.form-group label, .form-group-attachment label {
+    padding-left: 30px;
+    display: flex; /* Block display for labels */
+    margin-bottom: 0px; /* Space below labels */
+    font-weight: bold; /* Bold labels for better visibility */
+    font-size: 12px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group-attachment input {
+
+    width: calc(100% - 80px); /* Full width minus padding */
+    padding: 10px; /* Padding inside inputs */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+}
+
+.form-group input {
+    height: 10px;
+}
+
+
+.form-group textarea {
+    height: 60px; /* Fixed height for textarea */
+}
+
+.compose-container button {
+    padding: 10px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.compose-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.attachment-list {
+    list-style-type: none; /* Remove bullet points from list */
+    padding-left: 0; /* Remove default padding */
+}
+
+.attachment-list li {
+    background-color: #f1f1f1; /* Light gray background for attachment items */
+    padding: 5px;
+    margin-top: 5px; /* Space between attachment items */
+    display: none;
+}
+
+.inbox-container ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+.inbox-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a separator between emails */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.inbox-container li:hover {
+    background-color: #f9f9f9; /* Highlight on hover */
+}
+
+
+
+.preview-container h2 {
+    font-size: 24px; /* Size for main headings */
+    color: #333; /* Dark gray color for text */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+.preview-container h3 {
+    font-size: 20px; /* Size for subheadings */
+    color: #555; /* Medium gray color for subheadings */
+    margin-top: 20px; /* Space above subheadings */
+    margin-bottom: 10px; /* Space below subheadings */
+}
+
+.preview-container p {
+    font-size: 16px; /* Normal text size */
+    color: #666; /* Lighter gray for paragraph text */
+    line-height: 1.5; /* Line height for readability */
+}
+
+.preview-container ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove padding from left side */
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line if needed */
+    gap: 10px; /* Space between items */
+    justify-content: center;
+}
+
+.preview-container ul li {
+    margin-bottom: 0; /* Remove bottom margin since we're using flexbox */
+}
+
+.preview-container ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Bootstrap primary color for links */
+    padding: 5px 10px; /* Add some padding for clickable area */
+    border: 1px solid #007bff; /* Add a border around the link */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.preview-container ul li a:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Light background on hover */
+}
+
+
+/* Voice CSS */
+.main-voice-container {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-list {
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.voice-and-call {
+    width: 70%;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.voice-agora {
+    height: 50%;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.call-twilio {
+    height: 50%;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+
+.user-list h3 {
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.user-list ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove left padding */
+}
+
+.user-list li {
+    padding: 5px 0; /* Space between list items */
+}
+
+.voice-agora {
+    margin-top: 20px; /* Space above voice controls */
+}   
+
+.voice-agora input {
+    padding: 10px; /* Padding inside input */
+    border-radius: 4px; /* Rounded corners for input */
+    border: 1px solid #ccc; /* Light gray border */
+    width: 80%; /* Full width minus padding/border */
+}
+
+.voice-controls {
+    margin-top: 10px; /* Space above buttons */
+}
+
+.join-button,
+.leave-button {
+    padding: 10px 15px; /* Padding inside buttons */
+    border-radius: 4px; /* Rounded corners for buttons */
+    border: none; /* Remove default border */
+    color: white; /* White text color */
+}
+
+.join-button {
+    background-color: #28a745; /* Green background for join button */
+}
+
+.leave-button {
+    background-color: #dc3545; /* Red background for leave button */
+}
+
+.join-button:hover,
+.leave-button:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+
+.call-twilio {
+    padding-top: 20px; /* Space above Twilio call section */
+}
+
+.call-twilio h3 {
+    margin-bottom: 10px; /* Space below heading */
+}   
+
+.call-twilio input[type="tel"] {
+    padding: 10px; /* Padding inside input */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+    width: 80%; /* Full width minus padding/border */
+}
+
+.call-twilio button {
+    padding: 10px; /* Padding inside button */
+    border-radius: 4px; /* Rounded corners */
+    border: none; /* Remove default border */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+}
+
+.call-twilio button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.call-twilio p {
+    margin-top: 10px; /* Space above message */
+}
+
+.twilio-call-button {
+    margin-top: 10px;
+}
